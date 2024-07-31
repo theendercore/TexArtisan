@@ -9,6 +9,9 @@ const val CUT_HEIGHT = 20
 
 const val MODIFIER = 4
 
+val colNames = COLORS
+val rowNames = CANDLES
+
 fun main() {
     File("raw").listFiles()?.forEach {
         val input = ImageIO.read(it)
@@ -23,11 +26,15 @@ fun main() {
                 )
                 if (imageContainsPixels(subImage)) {
                     File("cooked/${it.nameWithoutExtension}").mkdirs()
-                    ImageIO.write(subImage, "png", File("cooked/${it.nameWithoutExtension}/${i}_${j}.png"))
+                    ImageIO.write(subImage, "png", File("cooked/${it.nameWithoutExtension}/${getName(j, i)}.png"))
                 }
             }
         }
     }
+}
+
+fun getName(x: Int, y: Int): String {
+    return String.format(rowNames[y], colNames[x])
 }
 
 fun imageContainsPixels(image: BufferedImage): Boolean {
