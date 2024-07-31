@@ -12,7 +12,7 @@ const val MODIFIER = 4
 val colNames = COLORS
 val rowNames = CANDLES
 
-val fliped = true
+val fliped = false
 
 fun main() {
     File("raw").listFiles()?.forEach {
@@ -28,7 +28,6 @@ fun main() {
                 )
                 if (imageContainsPixels(subImage)) {
                     File("cooked/${it.nameWithoutExtension}").mkdirs()
-                    println(colNames[j] + " : $j")
                     ImageIO.write(subImage, "png", File("cooked/${it.nameWithoutExtension}/${getName(j, i)}.png"))
                 }
             }

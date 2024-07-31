@@ -38,21 +38,32 @@ val HUMAN_MAP = listOf(
 )
 
 val COLORS = listOf(
-    "black_%s",
-    "blue_%s",
-    "brown_%s",
-    "cyan_%s",
-    "gray_%s",
-    "green_%s",
-    "light_blue_%s",
-    "light_gray_%s",
-    "lime_%s",
-    "magenta_%s",
-    "orange_%s",
-    "pink_%s",
-    "purple_%s",
-    "red_%s",
-    "white_%s",
-    "yellow_%s"
+    "",
+    "black_",
+    "blue_",
+    "brown_",
+    "cyan_",
+    "gray_",
+    "green_",
+    "light_blue_",
+    "light_gray_",
+    "lime_",
+    "magenta_",
+    "orange_",
+    "pink_",
+    "purple_",
+    "red_",
+    "white_",
+    "yellow_"
 )
-val CANDLES = listOf("soul_candle")
+val CANDLES = listOf(
+    "item/%sbig_candle",
+    "block/%sbig_candle",
+    "block/%sbig_candle_lit",
+    "item/%ssoul_candle",
+    "block/%ssoul_candle",
+    "block/%ssoul_candle_lit",
+    "item/%sbig_soul_candle",
+    "block/%sbig_soul_candle",
+    "block/%sbig_soul_candle_lit",
+)
