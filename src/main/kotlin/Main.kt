@@ -28,7 +28,8 @@ fun main() {
                 )
                 if (imageContainsPixels(subImage)) {
                     File("cooked/${it.nameWithoutExtension}").mkdirs()
-                    ImageIO.write(subImage, "png", File("cooked/${it.nameWithoutExtension}/${getName(j, i)}.png"))
+                    if ("_" != rowNames[i])
+                        ImageIO.write(subImage, "png", File("cooked/${it.nameWithoutExtension}/${getName(j, i)}.png"))
                 }
             }
         }
