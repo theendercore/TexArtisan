@@ -57,13 +57,13 @@ val COLORS = listOf(
     "yellow_"
 )
 val CANDLES = listOf(
-    "item/%sbig_candle",
-    "block/%sbig_candle",
-    "block/%sbig_candle_lit",
+    "item/big_%scandle",
+    "block/big_%scandle",
+    "block/big_%scandle_lit",
     "item/%ssoul_candle",
     "block/%ssoul_candle",
     "block/%ssoul_candle_lit",
-    "item/%sbig_soul_candle",
-    "block/%sbig_soul_candle",
-    "block/%sbig_soul_candle_lit",
+    "item/big_%ssoul_candle",
+    "block/big_%ssoul_candle",
+    "block/big_%ssoul_candle_lit",
 )
