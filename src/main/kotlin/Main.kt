@@ -12,6 +12,8 @@ const val MODIFIER = 4
 val colNames = COLORS
 val rowNames = CANDLES
 
+val fliped = true
+
 fun main() {
     File("raw").listFiles()?.forEach {
         val input = ImageIO.read(it)
@@ -26,6 +28,7 @@ fun main() {
                 )
                 if (imageContainsPixels(subImage)) {
                     File("cooked/${it.nameWithoutExtension}").mkdirs()
+                    println(colNames[j] + " : $j")
                     ImageIO.write(subImage, "png", File("cooked/${it.nameWithoutExtension}/${getName(j, i)}.png"))
                 }
             }
@@ -34,7 +37,8 @@ fun main() {
 }
 
 fun getName(x: Int, y: Int): String {
-    return String.format(rowNames[y], colNames[x])
+    return if (fliped) String.format(colNames[x], rowNames[y])
+    else String.format(rowNames[y], colNames[x])
 }
 
 fun imageContainsPixels(image: BufferedImage): Boolean {
