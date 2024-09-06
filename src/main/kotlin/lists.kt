@@ -1,28 +1,5 @@
 package com.theendercore
 
-val HUMANS = listOf(
-    "einsteinium",
-    "astralite",
-    "deathl",
-    "petalitate",
-    "blore",
-    "duskalite",
-    "voilit",
-    "jazium",
-    "repookite",
-    "cactaline"
-)
-val HUMAN_MAP = listOf(
-    "%s_ore",
-    "deepslate_%s_ore",
-    "%s_scrap",
-    "raw_%s_block",
-    "raw_%s",
-    "%s_block",
-    "%s",
-    "%s_nugget"
-)
-
 val COLORS = listOf(
     "",
     "black_",
