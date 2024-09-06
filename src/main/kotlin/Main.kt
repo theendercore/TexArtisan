@@ -4,42 +4,74 @@ import java.awt.image.BufferedImage
 import java.io.File
 import javax.imageio.ImageIO
 
-const val CUT_WIDTH = 20
-const val CUT_HEIGHT = 20
+// Image dimensions
+const val CUT_WIDTH = 16
+const val CUT_HEIGHT = 16
+const val MODIFIER = 0
 
-const val MODIFIER = 4
+// Image names
+val mode = NameMode.LIST
 
-val colNames = COLORS
-val rowNames = CANDLES
+val colNames = HUMAN_MAP
+val rowNames = HUMAN_MAP
 
-val fliped = false
+val listNames = WOOD_SET
+const val FLIPED = false
+
+val output = File("cooked")
+val input = File("raw")
 
 fun main() {
-    File("raw").listFiles()?.forEach {
-        val input = ImageIO.read(it)
-
-        val numRows = input.height.floorDiv(CUT_HEIGHT)
-        val numCols = input.width.floorDiv(CUT_WIDTH)
-        for (i in 0 until numRows) {
-            for (j in 0 until numCols) {
-                val subImage = input.getSubimage(
-                    j * CUT_WIDTH + MODIFIER, i * CUT_HEIGHT + MODIFIER,
-                    CUT_WIDTH - MODIFIER, CUT_HEIGHT - MODIFIER
-                )
-                if (imageContainsPixels(subImage)) {
-                    File("cooked/${it.nameWithoutExtension}").mkdirs()
-                    if ("_" != rowNames[i])
-                        ImageIO.write(subImage, "png", File("cooked/${it.nameWithoutExtension}/${getName(j, i)}.png"))
-                }
-            }
-        }
+    if (!output.exists()) {
+        println("ERROR : Output folder does not exist")
+        output.mkdirs()
+    }
+    if (!input.exists()) {
+        println("ERROR : Input folder does not exist")
+        input.mkdirs()
+    } else {
+        input.listFiles()?.forEach(::processImage)
     }
 }
 
-fun getName(x: Int, y: Int): String {
-    return if (fliped) String.format(colNames[x], rowNames[y])
-    else String.format(rowNames[y], colNames[x])
+fun processImage(image: File) {
+    val name = image.nameWithoutExtension
+    if (image.extension != "png") return
+
+    val input = ImageIO.read(image)
+
+    val numRows = input.height.floorDiv(CUT_HEIGHT)
+    val numCols = input.width.floorDiv(CUT_WIDTH)
+
+    val resultFolder = File("cooked/$name")
+
+    for (i in 0 until numRows) {
+        for (j in 0 until numCols) {
+            val exportImg = input.getSubimage(
+                j * CUT_WIDTH + MODIFIER, i * CUT_HEIGHT + MODIFIER,
+                CUT_WIDTH - MODIFIER, CUT_HEIGHT - MODIFIER
+            )
+            val resultName = getName(j, i, name, numCols)
+            if (!isNameValid(resultName) || !imageContainsPixels(exportImg)) continue
+            println("name: $resultName, i: $i, j: $j")
+
+            val folders = resultFolder.resolve(resultName).parentFile
+            if (!folders.exists()) folders.mkdirs()
+            ImageIO.write(exportImg, "png", resultFolder.resolve("${resultName}.png"))
+        }
+        println()
+    }
 }
+
+
+fun getName(x: Int, y: Int, name: String, len: Int): String = when (mode) {
+    NameMode.ROW_AND_COL -> String.format(rowNames[y], colNames[x])
+    NameMode.REVERSE_ROW_AND_COL -> String.format(colNames[x], rowNames[y])
+    NameMode.LIST -> String.format(String.format(listNames[x + (len * y)], name))
+}
+
+fun isNameValid(name: String): Boolean = name.isNotEmpty() && name != "_" && name != "-"
+
 
 fun imageContainsPixels(image: BufferedImage): Boolean {
     for (y in 0 until image.height) {
@@ -49,4 +81,11 @@ fun imageContainsPixels(image: BufferedImage): Boolean {
         }
     }
     return false
+}
+
+
+enum class NameMode {
+    ROW_AND_COL,
+    REVERSE_ROW_AND_COL,
+    LIST,
 }

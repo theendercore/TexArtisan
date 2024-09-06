@@ -1,19 +1,5 @@
 package com.theendercore
 
-val ROCKS = listOf(
-    "pumice",
-    "marble",
-    "tektite",
-    "orbital_granite",
-    "blairmorite",
-    "pyroxenite",
-    "argillite",
-    "mudrock",
-    "blue_schist",
-    "variolite"
-)
-val ROCK_MAP = listOf("%s", "cobbles_%s")
-
 val HUMANS = listOf(
     "einsteinium",
     "astralite",
@@ -69,4 +55,42 @@ val CANDLES = listOf(
     "item/big_%ssoul_candle",
     "block/big_%ssoul_candle",
     "block/big_%ssoul_candle_lit",
+)
+
+val WOOD_SET = listOf(
+    "block/%s_log_top",
+    "block/stripped_%s_log_top",
+    "block/%s_planks",
+    "block/%s_door_top",
+    "block/%s_leaves",
+
+    "block/%s_log",
+    "block/stripped_%s_log",
+    "block/%s_trapdoor",
+    "block/%s_door_bottom",
+    "block/%s_sapling",
+
+    "-",
+    "-",
+    "-",
+    "-",
+    "item/%s_door",
+
+    "-",
+    "-",
+    "-",
+    "-",
+    "item/%s_sign",
+
+    "-",
+    "-",
+    "-",
+    "-",
+    "item/%s_hanging_sign",
+
+    "-",
+    "-",
+    "-",
+    "-",
+    "gui/hanging_signs/%s"
 )
