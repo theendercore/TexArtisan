@@ -12,8 +12,8 @@ const val MODIFIER = 0
 // Image names
 val mode = NameMode.LIST
 
-val colNames = HUMAN_MAP
-val rowNames = HUMAN_MAP
+val colNames = listOf<String>()
+val rowNames = listOf<String>()
 
 val listNames = WOOD_SET
 const val FLIPED = false
