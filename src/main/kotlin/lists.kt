@@ -34,6 +34,46 @@ val CANDLES = listOf(
     "block/big_%ssoul_candle_lit",
 )
 
+val MOSS_COLORS = listOf(
+    "", // No Color
+    "crimson_", // Red
+    "magmatic_", // Orange
+    "royal_", // Yellow
+    "glowing_", // Lime
+    "dark_", // Green
+    "maritime_", // Cyan
+    "warped_", // Light Blue
+    "azure_", // Blue
+    "arcane_", // Purple
+    "twisted_", // Magenta
+    "rosy_", // Pink
+    "ancient_", // Brown
+    "ashen_", // Black
+    "chrome_", // Gray
+    "dusky_", // Light Gray
+    "bone_", // White
+)
+val MOSS_TEXTURES = listOf(
+    "%smoss",
+    "%sazalea_top",
+    "%sazalea_plant",
+    "%sazalea_side",
+    "%sazalea_leaves",
+    "potted_%sazalea_bush_plant",
+    "potted_%sazalea_bush_side",
+    "potted_%sazalea_bush_top",
+    "flowering_%smoss",
+    "flowering_%sazalea_top",
+    "flowering_%sazalea_side",
+    "flowering_%sazalea_leaves",
+    "potted_flowering_%sazalea_bush_plant",
+    "potted_flowering_%sazalea_bush_side",
+    "potted_flowering_%sazalea_bush_top",
+    "-",
+)
+
+
+
 val WOOD_SET = listOf(
     "block/%s_log_top",
     "block/stripped_%s_log_top",

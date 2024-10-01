@@ -10,10 +10,10 @@ const val CUT_HEIGHT = 16
 const val MODIFIER = 0
 
 // Image names
-val mode = NameMode.LIST
+val mode = NameMode.ROW_AND_COL
 
-val colNames = listOf<String>()
-val rowNames = listOf<String>()
+val colNames = MOSS_COLORS
+val rowNames = MOSS_TEXTURES
 
 val listNames = WOOD_SET
 const val FLIPED = false
@@ -70,7 +70,7 @@ fun getName(x: Int, y: Int, name: String, len: Int): String = when (mode) {
     NameMode.LIST -> String.format(String.format(listNames[x + (len * y)], name))
 }
 
-fun isNameValid(name: String): Boolean = name.isNotEmpty() && name != "_" && name != "-"
+fun isNameValid(name: String): Boolean = name.isNotEmpty() && name != "_" && name != "-" && !name.contains("-")
 
 
 fun imageContainsPixels(image: BufferedImage): Boolean {
