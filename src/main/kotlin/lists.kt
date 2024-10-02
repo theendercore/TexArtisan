@@ -36,6 +36,7 @@ val CANDLES = listOf(
 
 val MOSS_COLORS = listOf(
     "", // No Color
+    "pale_", //Pale
     "crimson_", // Red
     "magmatic_", // Orange
     "royal_", // Yellow
@@ -55,20 +56,25 @@ val MOSS_COLORS = listOf(
 )
 val MOSS_TEXTURES = listOf(
     "%smoss",
-    "%sazalea_top",
-    "%sazalea_plant",
-    "%sazalea_side",
-    "%sazalea_leaves",
-    "potted_%sazalea_bush_plant",
-    "potted_%sazalea_bush_side",
-    "potted_%sazalea_bush_top",
+    "%sbush_top",
+    "%sbush_plant",
+    "%sbush_side",
+    "%sleaves",
+    "potted_%sbush_plant",
+    "potted_%sbush_side",
+    "potted_%sbush_top",
+    "%shanging_moss",
+    "%shanging_moss_tip",
     "flowering_%smoss",
-    "flowering_%sazalea_top",
-    "flowering_%sazalea_side",
-    "flowering_%sazalea_leaves",
-    "potted_flowering_%sazalea_bush_plant",
-    "potted_flowering_%sazalea_bush_side",
-    "potted_flowering_%sazalea_bush_top",
+    "flowering_%sbush_top",
+    "flowering_%sbush_plant",
+    "flowering_%sbush_side",
+    "flowering_%sleaves",
+    "potted_flowering_%sbush_plant",
+    "potted_flowering_%sbush_side",
+    "potted_flowering_%sbush_top",
+    "flowering_%shanging_moss",
+    "flowering_%shanging_moss_tip",
     "-",
 )
 
