@@ -100,9 +100,11 @@ val PUMPKIN_ITEMS = listOf(
     "item/stuffed_%s_pumpkin",
     "item/stuffed_%s_pumpkin_block",
     "item/%s_pumpkin_soup",
+    "item/%s_pumpkin_pie",
+    "item/%s_pumpkin_pie_slice",
+    "block/%s_pumpkin_pie_top",
+    "block/%s_pumpkin_pie_inner",
     "-",
-    "-",
-    "-"
 )
 
 

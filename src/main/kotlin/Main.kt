@@ -42,16 +42,16 @@ fun processImage(image: File) {
 
     val input = ImageIO.read(image)
 
-    val numRows = input.height.floorDiv(CUT_HEIGHT + H_MODIFIER)
-    val numCols = input.width.floorDiv(CUT_WIDTH + W_MODIFIER)
+    val numRows = input.height.floorDiv(CUT_HEIGHT)
+    val numCols = input.width.floorDiv(CUT_WIDTH)
 
     val resultFolder = File("cooked/$name")
 
     for (x in 0 until numRows) {
         for (y in 0 until numCols) {
             val exportImg = input.getImage(y, x)
-
             val resultName = getName(y, x, name, numCols)
+
             if (!isNameValid(resultName) || !imageContainsPixels(exportImg)) continue
             println("name: $resultName, x: $x, y: $y")
 
@@ -70,8 +70,7 @@ private fun BufferedImage.getImage(x: Int, y: Int): BufferedImage {
         )
 
         ModifierType.BOTTOM_RIGHT -> this.getSubimage(
-            x * (CUT_WIDTH), y * (CUT_HEIGHT),
-            CUT_WIDTH - W_MODIFIER, CUT_HEIGHT - H_MODIFIER
+            x * (CUT_WIDTH), y * (CUT_HEIGHT), CUT_WIDTH - W_MODIFIER, CUT_HEIGHT - H_MODIFIER
         )
     }
 
