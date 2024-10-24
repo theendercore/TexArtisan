@@ -6,14 +6,16 @@ import javax.imageio.ImageIO
 
 // Image dimensions
 const val CUT_WIDTH = 16
-const val CUT_HEIGHT = 16
-const val MODIFIER = 0
+const val CUT_HEIGHT = 20
+val modifierType = ModifierType.BOTTOM_RIGHT
+const val W_MODIFIER = 0
+const val H_MODIFIER = 4
 
 // Image names
 val mode = NameMode.ROW_AND_COL
 
-val colNames = MOSS_COLORS
-val rowNames = MOSS_TEXTURES
+val colNames = PUMPKINS
+val rowNames = PUMPKIN_ITEMS
 
 val listNames = WOOD_SET
 const val FLIPED = false
@@ -40,20 +42,18 @@ fun processImage(image: File) {
 
     val input = ImageIO.read(image)
 
-    val numRows = input.height.floorDiv(CUT_HEIGHT)
-    val numCols = input.width.floorDiv(CUT_WIDTH)
+    val numRows = input.height.floorDiv(CUT_HEIGHT + H_MODIFIER)
+    val numCols = input.width.floorDiv(CUT_WIDTH + W_MODIFIER)
 
     val resultFolder = File("cooked/$name")
 
-    for (i in 0 until numRows) {
-        for (j in 0 until numCols) {
-            val exportImg = input.getSubimage(
-                j * CUT_WIDTH + MODIFIER, i * CUT_HEIGHT + MODIFIER,
-                CUT_WIDTH - MODIFIER, CUT_HEIGHT - MODIFIER
-            )
-            val resultName = getName(j, i, name, numCols)
+    for (x in 0 until numRows) {
+        for (y in 0 until numCols) {
+            val exportImg = input.getImage(y, x)
+
+            val resultName = getName(y, x, name, numCols)
             if (!isNameValid(resultName) || !imageContainsPixels(exportImg)) continue
-            println("name: $resultName, i: $i, j: $j")
+            println("name: $resultName, x: $x, y: $y")
 
             val folders = resultFolder.resolve(resultName).parentFile
             if (!folders.exists()) folders.mkdirs()
@@ -61,6 +61,21 @@ fun processImage(image: File) {
         }
         println()
     }
+}
+
+private fun BufferedImage.getImage(x: Int, y: Int): BufferedImage {
+    return when (modifierType) {
+        ModifierType.ALL -> this.getSubimage(
+            x * (CUT_WIDTH + W_MODIFIER), y * (CUT_HEIGHT + H_MODIFIER), CUT_WIDTH - W_MODIFIER, CUT_HEIGHT - H_MODIFIER
+        )
+
+        ModifierType.BOTTOM_RIGHT -> this.getSubimage(
+            x * (CUT_WIDTH), y * (CUT_HEIGHT),
+            CUT_WIDTH - W_MODIFIER, CUT_HEIGHT - H_MODIFIER
+        )
+    }
+
+
 }
 
 
@@ -76,16 +91,12 @@ fun isNameValid(name: String): Boolean = name.isNotEmpty() && name != "_" && nam
 fun imageContainsPixels(image: BufferedImage): Boolean {
     for (y in 0 until image.height) {
         for (x in 0 until image.width) {
-            if ((image.getRGB(x, y) shr 24) and 0xFF != 0x00)
-                return true
+            if ((image.getRGB(x, y) shr 24) and 0xFF != 0x00) return true
         }
     }
     return false
 }
 
 
-enum class NameMode {
-    ROW_AND_COL,
-    REVERSE_ROW_AND_COL,
-    LIST,
-}
+enum class NameMode { ROW_AND_COL, REVERSE_ROW_AND_COL, LIST, }
+enum class ModifierType { ALL, BOTTOM_RIGHT }

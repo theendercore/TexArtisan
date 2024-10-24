@@ -1,5 +1,7 @@
 package com.theendercore
 
+
+// Maps
 val COLORS = listOf(
     "",
     "black_",
@@ -78,8 +80,34 @@ val MOSS_TEXTURES = listOf(
     "-",
 )
 
+val PUMPKINS = listOf(
+    "-",
+    "lantern",
+    "mosskin",
+    "gloom",
+    "pale",
+    "-",
+    "-",
+    "-"
+)
+val PUMPKIN_ITEMS = listOf(
+    "-",
+    "-",
+    "block/stuffed_%s_pumpkin_block_side",
+    "block/stuffed_%s_pumpkin_block_top",
+    "block/stuffed_%s_pumpkin_block_bottom",
+    "item/%s_pumpkin_slice",
+    "item/stuffed_%s_pumpkin",
+    "item/stuffed_%s_pumpkin_block",
+    "item/%s_pumpkin_soup",
+    "-",
+    "-",
+    "-"
+)
 
 
+
+// Single Lists
 val WOOD_SET = listOf(
     "block/%s_log_top",
     "block/stripped_%s_log_top",
