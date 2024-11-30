@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package com.theendercore
 
 
@@ -139,6 +141,32 @@ val AC_NUB_VARIANTS = listOf(
     "-",
     "%s_nub_side",
     "%s_nub_top",
+)
+val TERA_GEMS = listOf(
+    "",
+    "normal_",
+    "fire_",
+    "water_",
+    "electric_",
+    "grass_",
+    "ice_",
+    "fighting_",
+    "poison_",
+    "ground_",
+    "flying_",
+    "psychic_",
+    "bug_",
+    "rock_",
+    "ghost_",
+    "dragon_",
+    "dark_",
+    "steel_",
+    "fairy_",
+    "stellar_",
+)
+val TERA_GEM_CUTS =listOf(
+    "%s_terra_gem_shard",
+    "%s_tera_gem",
 )
 
 

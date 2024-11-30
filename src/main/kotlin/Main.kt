@@ -14,8 +14,8 @@ const val H_MODIFIER = 0
 // Image names
 val mode = NameMode.ROW_AND_COL
 
-val colNames = AC_NUB_MATERIALS
-val rowNames = AC_NUB_VARIANTS
+val colNames = TERA_GEMS
+val rowNames = TERA_GEM_CUTS
 
 val listNames = WOOD_SET
 const val FLIPED = false
