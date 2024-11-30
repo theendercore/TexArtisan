@@ -107,6 +107,40 @@ val PUMPKIN_ITEMS = listOf(
     "-",
 )
 
+val AC_WOODS = listOf(
+    "-",
+    "-",
+    "cascade",
+    "twisted",
+    "rotwood",
+    "-"
+)
+val AC_WOOD_VARIANTS = listOf(
+    "-",
+    "-",
+    "%s_boards",
+    "%s_boards_odd",
+    "%s_table_top",
+    "%s_table_bottom",
+    "%s_table",
+)
+val AC_NUB_MATERIALS = listOf(
+    "-",
+    "-",
+    "polished_nether_brick",
+    "polished_red_nether_brick",
+    "polished_blue_nether_brick",
+    "polished_gray_nether_brick",
+    "gothstone",
+    "schist",
+    "rhyolite",
+)
+val AC_NUB_VARIANTS = listOf(
+    "-",
+    "%s_nub_side",
+    "%s_nub_top",
+)
+
 
 
 // Single Lists

@@ -6,16 +6,16 @@ import javax.imageio.ImageIO
 
 // Image dimensions
 const val CUT_WIDTH = 16
-const val CUT_HEIGHT = 20
-val modifierType = ModifierType.BOTTOM_RIGHT
+const val CUT_HEIGHT = 16
+val modifierType = ModifierType.ALL
 const val W_MODIFIER = 0
-const val H_MODIFIER = 4
+const val H_MODIFIER = 0
 
 // Image names
 val mode = NameMode.ROW_AND_COL
 
-val colNames = PUMPKINS
-val rowNames = PUMPKIN_ITEMS
+val colNames = AC_NUB_MATERIALS
+val rowNames = AC_NUB_VARIANTS
 
 val listNames = WOOD_SET
 const val FLIPED = false
