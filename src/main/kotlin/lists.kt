@@ -125,6 +125,11 @@ val AC_WOOD_VARIANTS = listOf(
     "%s_table_top",
     "%s_table_bottom",
     "%s_table",
+    "-",
+    "%s_cabinet_top",
+    "%s_cabinet_front",
+    "%s_cabinet_front_open",
+    "%s_cabinet_side"
 )
 val AC_NUB_MATERIALS = listOf(
     "-",
@@ -165,8 +170,8 @@ val TERA_GEMS = listOf(
     "stellar_",
 )
 val TERA_GEM_CUTS =listOf(
-    "%s_terra_gem_shard",
-    "%s_tera_gem",
+    "%stera_shard",
+    "%stera_gem",
 )
 
 
