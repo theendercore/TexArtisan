@@ -5,20 +5,19 @@ import java.io.File
 import javax.imageio.ImageIO
 
 // Image dimensions
-const val CUT_WIDTH = 16
-const val CUT_HEIGHT = 16
+const val CUT_WIDTH = 4
+const val CUT_HEIGHT = 4
 val modifierType = ModifierType.ALL
 const val W_MODIFIER = 0
 const val H_MODIFIER = 0
 
 // Image names
-val mode = NameMode.ROW_AND_COL
+val mode = NameMode.LIST
 
 val colNames = AC_WOODS
 val rowNames = AC_WOOD_VARIANTS
 
-val listNames = WOOD_SET
-const val FLIPED = false
+val listNames = CROSSHAIR_ICONS
 
 val output = File("cooked")
 val input = File("raw")
