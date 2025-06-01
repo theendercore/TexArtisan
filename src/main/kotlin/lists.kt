@@ -4,6 +4,31 @@ package com.theendercore
 
 
 // Maps
+val THE_ONE_TYPES = listOf(
+    "_zero",
+    "_one",
+    "_two",
+    "_three",
+    "_four",
+    "_five",
+    "_six",
+    "_seven",
+    "_eight",
+    "_nine",
+    "_skip",
+    "_draw_two",
+    "_reverse",
+    "-",
+)
+val THE_ONE_COLORS = listOf(
+    "cards/the_one/red%s",
+    "cards/the_one/yellow%s",
+    "cards/the_one/green%s",
+    "cards/the_one/blue%s",
+    "-", //wild
+    "-"  //blank
+)
+
 val COLORS = listOf(
     "",
     "black_",
@@ -131,6 +156,31 @@ val AC_WOOD_VARIANTS = listOf(
     "%s_cabinet_front_open",
     "%s_cabinet_side"
 )
+
+val VV_WOODS = listOf(
+    "-",
+    "spruce",
+    "birch",
+    "jungle",
+    "acacia",
+    "dark_oak",
+    "mangrove",
+    "cherry",
+    "bamboo",
+    "crimson",
+    "warped",
+    "-",
+    "-"
+)
+val VV_WOOD_VARIANTS = listOf(
+    "-",
+    "%s_bookshelf",
+    "-",
+    "-",
+    "-",
+    "-",
+    "-"
+)
 val AC_NUB_MATERIALS = listOf(
     "-",
     "-",
@@ -169,35 +219,12 @@ val TERA_GEMS = listOf(
     "fairy_",
     "stellar_",
 )
-val TERA_GEM_CUTS =listOf(
+val TERA_GEM_CUTS = listOf(
     "%stera_shard",
     "%stera_gem",
 )
 
-val CARD_ONE_TYPES = listOf(
-    "_zero",
-    "_one",
-    "_two",
-    "_three",
-    "_four",
-    "_five",
-    "_six",
-    "_seven",
-    "_eight",
-    "_nine",
-    "_skip",
-    "_draw_two",
-    "_reverse",
-    "-",
-)
-val CARD_ONE_COLORS = listOf(
-    "cards/the_one/red%s",
-    "cards/the_one/yellow%s",
-    "cards/the_one/green%s",
-    "cards/the_one/blue%s",
-    "-", //wild
-    "-"  //blank
-)
+
 val COPPER_FAN = listOf(
     "copper_fan",
     "copper_fan_powered",

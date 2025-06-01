@@ -5,17 +5,17 @@ import java.io.File
 import javax.imageio.ImageIO
 
 // Image dimensions
-const val CUT_WIDTH = 8
-const val CUT_HEIGHT = 12
-val modifierType = ModifierType.BOTTOM_RIGHT
+const val CUT_WIDTH = 16
+const val CUT_HEIGHT = 16
+val modifierType = ModifierType.ALL
 const val W_MODIFIER = 4
 const val H_MODIFIER = 2
 
 // Image names
 val mode = NameMode.ROW_AND_COL
 
-val colNames = CARD_ONE_TYPES
-val rowNames = CARD_ONE_COLORS
+val colNames = THE_ONE_TYPES
+val rowNames = THE_ONE_COLORS
 
 val listNames = CROSSHAIR_ICONS
 
@@ -48,32 +48,44 @@ fun processImage(image: File) {
 
     for (x in 0 until numRows) {
         for (y in 0 until numCols) {
-            val exportImg = input.getImage(y, x)
             val resultName = getName(y, x, name, numCols)
-
-            if (!isNameValid(resultName) || !imageContainsPixels(exportImg)) continue
+            if (!isNameValid(resultName)) continue
             println("name: $resultName, x: $x, y: $y")
+
+            val exportImg = input.getImage(y, x) ?: continue
+            if (!imageContainsPixels(exportImg)) continue
 
             val folders = resultFolder.resolve(resultName).parentFile
             if (!folders.exists()) folders.mkdirs()
             ImageIO.write(exportImg, "png", resultFolder.resolve("${resultName}.png"))
         }
-        println()
     }
 }
 
-private fun BufferedImage.getImage(x: Int, y: Int): BufferedImage {
-    return when (modifierType) {
-        ModifierType.ALL -> this.getSubimage(
-            x * (CUT_WIDTH + W_MODIFIER), y * (CUT_HEIGHT + H_MODIFIER), CUT_WIDTH - W_MODIFIER, CUT_HEIGHT - H_MODIFIER
-        )
+private fun BufferedImage.getImage(x: Int, y: Int): BufferedImage? {
+    try {
+        return when (modifierType) {
+            ModifierType.ALL -> {
+                this.getSubimage(
+                    (x * CUT_WIDTH) + W_MODIFIER, (y * CUT_HEIGHT) + H_MODIFIER,
+                    CUT_WIDTH - (W_MODIFIER * 2), CUT_HEIGHT - (H_MODIFIER * 2)
+                )
+            }
 
-        ModifierType.BOTTOM_RIGHT -> this.getSubimage(
-            x * (CUT_WIDTH), y * (CUT_HEIGHT), CUT_WIDTH - W_MODIFIER, CUT_HEIGHT - H_MODIFIER
+            ModifierType.BOTTOM_RIGHT -> this.getSubimage(
+                x * (CUT_WIDTH), y * (CUT_HEIGHT), CUT_WIDTH - W_MODIFIER, CUT_HEIGHT - H_MODIFIER
+            )
+        }
+    } catch (e: Exception) {
+        println(
+            "X: ${x * (CUT_WIDTH + W_MODIFIER)}\n" +
+                    "Y: ${y * (CUT_HEIGHT + H_MODIFIER)}\n" +
+                    "Width: ${CUT_WIDTH - (W_MODIFIER * 2)}\n" +
+                    "Height: ${CUT_HEIGHT - (H_MODIFIER * 2)}"
         )
+        println(e.message)
     }
-
-
+    return null
 }
 
 
