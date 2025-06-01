@@ -5,17 +5,17 @@ import java.io.File
 import javax.imageio.ImageIO
 
 // Image dimensions
-const val CUT_WIDTH = 4
-const val CUT_HEIGHT = 4
-val modifierType = ModifierType.ALL
-const val W_MODIFIER = 0
-const val H_MODIFIER = 0
+const val CUT_WIDTH = 8
+const val CUT_HEIGHT = 12
+val modifierType = ModifierType.BOTTOM_RIGHT
+const val W_MODIFIER = 4
+const val H_MODIFIER = 2
 
 // Image names
-val mode = NameMode.LIST
+val mode = NameMode.ROW_AND_COL
 
-val colNames = AC_WOODS
-val rowNames = AC_WOOD_VARIANTS
+val colNames = CARD_ONE_TYPES
+val rowNames = CARD_ONE_COLORS
 
 val listNames = CROSSHAIR_ICONS
 

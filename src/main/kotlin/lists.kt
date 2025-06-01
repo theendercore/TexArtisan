@@ -174,7 +174,56 @@ val TERA_GEM_CUTS =listOf(
     "%stera_gem",
 )
 
-
+val CARD_ONE_TYPES = listOf(
+    "_zero",
+    "_one",
+    "_two",
+    "_three",
+    "_four",
+    "_five",
+    "_six",
+    "_seven",
+    "_eight",
+    "_nine",
+    "_skip",
+    "_draw_two",
+    "_reverse",
+    "-",
+)
+val CARD_ONE_COLORS = listOf(
+    "cards/the_one/red%s",
+    "cards/the_one/yellow%s",
+    "cards/the_one/green%s",
+    "cards/the_one/blue%s",
+    "-", //wild
+    "-"  //blank
+)
+val COPPER_FAN = listOf(
+    "copper_fan",
+    "copper_fan_powered",
+    "exposed_copper_fan",
+    "exposed_copper_fan_powered",
+    "weathered_copper_fan",
+    "weathered_copper_fan_powered",
+    "oxidized_copper_fan",
+    "oxidized_copper_fan_powered"
+)
+val TOP_SIDE_BOTTOM = listOf(
+    "block/%s_top",
+    "block/%s_side",
+    "block/%s_bottom",
+)
+val GODHOME_SHIFT = listOf(
+    "shift_block_radiant",
+    "shift_block_shining",
+    "shift_block_somber"
+)
+val FRONT_TOP_SIDE_BACK = listOf(
+    "block/%s_front",
+    "block/%s_top",
+    "block/%s_side",
+    "block/%s_back",
+)
 
 // Single Lists
 val WOOD_SET = listOf(
@@ -279,4 +328,37 @@ val CROSSHAIR_ICONS = listOf(
     "pickaxe",
     "axe",
     "diagonal_handle",
+)
+
+
+private const val chestName = "stone_chest"
+val STONE_CHEST_SIDE = listOf(
+    "%s",
+    "%s_left",
+    "%s_right",
+)
+val STONE_CHEST_TYPE = listOf(
+    chestName + "_front",
+    chestName + "_back",
+    chestName + "_side",
+    chestName + "_top",
+    chestName + "_bottom",
+    chestName + "_top_open",
+    chestName + "_bottom_open",
+)
+val STONE_CHEST_ALT = listOf(
+    "block/%s_front",
+    "block/%s_side",
+    "block/%s_top",
+    "block/%s_bottom",
+
+    "block/%s_front_left",
+    "block/%s_front_right",
+    "block/%s_back_right",
+    "block/%s_back_left",
+
+    "block/%s_top_left",
+    "block/%s_top_right",
+    "block/%s_bottom_right",
+    "block/%s_bottom_left",
 )
